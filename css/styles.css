@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 * Start Bootstrap - Landing Page v6.0.6 (https://startbootstrap.com/theme/landing-page)
-* Copyright 2013-2024 Start Bootstrap
+* Copyright 2013-2026 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-landing-page/blob/master/LICENSE)
 */
 /*!
@@ -10883,7 +10883,11 @@ p.text-muted {
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #f9ad00;
+  background-color: #ffc107 !important;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1030;
 }
 #mainNav .navbar-toggler {
   padding: 0.75rem;
@@ -10891,9 +10895,11 @@ p.text-muted {
   font-family: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-transform: uppercase;
   font-weight: 700;
+  color: #212529 !important;
+  border-color: #212529 !important;
 }
 #mainNav .navbar-brand {
-  color: #f9ad00;
+  color: #212529 !important;
   font-family: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 900;
   letter-spacing: 0.0625em;
@@ -10905,11 +10911,11 @@ p.text-muted {
 #mainNav .navbar-nav .nav-item .nav-link {
   font-family: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
-  color: #212529;
+  color: #212529 !important;
   letter-spacing: 0.0625em;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #212529;
+  color: #000000 !important;
 }
 
 @media (min-width: 992px) {
@@ -10917,7 +10923,7 @@ p.text-muted {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     border: none;
-    background-color: transparent;
+    background-color: transparent !important;
     transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
   }
   #mainNav .navbar-brand {
@@ -10931,7 +10937,7 @@ p.text-muted {
   #mainNav.navbar-shrink {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #f9ad00;
+    background-color: #ffc107 !important;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
@@ -10991,13 +10997,15 @@ header.masthead .masthead-heading {
     margin-bottom: 4rem;
   }
 }
-#gallery .gallery-box {
+#galerija .gallery-box {
   position: relative;
   display: block;
   padding: 5px;
   box-shadow: 8px 16px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden; /* KLJUČNO: Sprečava da se nevidljivi tekst širi van slike i blokira linkove */
+  border-radius: 8px; /* Opcionalno: daje lijep moderan zaobljeni kut slikama */
 }
-#gallery .gallery-box .gallery-box-caption {
+#galerija .gallery-box .gallery-box-caption {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11006,38 +11014,115 @@ header.masthead .masthead-heading {
   height: 100%;
   position: absolute;
   bottom: 0;
+  left: 0; /* Osigurava da caption kreće tačno od ivice slike */
   text-align: center;
   opacity: 0;
+  pointer-events: none; /* KLJUČNO: Propusti klikove/dodire KROZ tekst na sam link slike */
   color: #fff;
   background: rgba(249, 173, 0, 0.9);
   transition: opacity 0.25s ease;
-  text-align: center;
 }
-#gallery .gallery-box .gallery-box-caption .project-category {
+#galerija .gallery-box .gallery-box-caption .project-category {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
 }
-#gallery .gallery-box .gallery-box-caption .project-name {
+#galerija .gallery-box .gallery-box-caption .project-name {
   font-size: 1.2rem;
 }
-#gallery .gallery-box:hover .gallery-box-caption {
+#galerija .gallery-box:hover .gallery-box-caption {
   opacity: 1;
 }
+@media (max-width: 767.98px) {
+  #galerija .gallery-box .gallery-box-caption {
+    display: none !important; /* Na mobitelima potpuno gasi caption da ne smeta pri kliku prstom */
+  }
+}
 
-#about-me .about-me-text {
-  padding: 2rem;
+#o-meni {
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+}
+#o-meni .row {
+  align-items: center;
+}
+#o-meni .about-me-text {
+  padding: 3rem;
   text-align: justify;
 }
-#about-me .about-me-img {
-  min-height: 30rem;
+#o-meni .about-me-img {
+  min-height: 35rem;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#o-meni .about-me-img.certifikat-bg {
+  background-position: center bottom;
 }
 @media (max-width: 768px) {
-  #about-me .about-me-text {
-    padding: 2rem;
-    text-align: start;
+  #o-meni {
+    padding-top: 5.5rem !important;
+    padding-bottom: 1.5rem;
+  }
+  #o-meni .about-me-text {
+    padding: 2rem 1.25rem !important;
+  }
+  #o-meni .about-me-text h2, #o-meni .about-me-text .h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.3;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    text-align: left;
+  }
+  #o-meni .about-me-text p.lead {
+    font-size: 1.05rem !important;
+    line-height: 1.6;
+    text-align: left;
+  }
+  #o-meni .about-me-img {
+    min-height: 24rem;
+  }
+}
+
+#pravilnik {
+  padding-top: 1.5rem;
+  padding-bottom: 4rem;
+  background-color: #ffffff;
+}
+#pravilnik .pravilnik-text {
+  padding: 2rem;
+}
+#pravilnik .pravilnik-text h2, #pravilnik .pravilnik-text .h2 {
+  margin-bottom: 2rem;
+}
+#pravilnik .pravilnik-text p.lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #333333;
+  margin-bottom: 1.5rem !important;
+  padding-left: 1.25rem;
+  border-left: 3px solid #ffc107;
+  text-align: justify;
+}
+#pravilnik .pravilnik-text p.lead:empty {
+  display: none;
+}
+@media (max-width: 768px) {
+  #pravilnik {
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+  }
+  #pravilnik .pravilnik-text {
+    padding: 1rem 0.5rem;
+  }
+  #pravilnik .pravilnik-text p.lead {
+    font-size: 1rem !important;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 1.25rem !important;
+    padding-left: 1rem;
+    border-left-width: 4px;
   }
 }
 
