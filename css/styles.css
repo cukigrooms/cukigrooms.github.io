@@ -10874,8 +10874,9 @@ p.text-muted {
     color: #000000 !important;
     pointer-events: auto !important;
     cursor: pointer !important;
-    position: relative;
-    z-index: 10;
+    display: inline-block !important;
+    position: relative !important;
+    z-index: 9999 !important;
   }
 }
 
