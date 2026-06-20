@@ -11148,13 +11148,13 @@ header.masthead .masthead-heading {
 .footer .phone-link {
   color: #333333;
   text-decoration: none;
-  pointer-events: none;
-  cursor: default;
+  pointer-events: none !important;
+  cursor: default !important;
 }
 @media (max-width: 768px) {
   .footer .phone-link {
     color: #000000;
-    pointer-events: auto;
-    cursor: pointer;
+    pointer-events: auto !important;
+    cursor: pointer !important;
   }
 }
