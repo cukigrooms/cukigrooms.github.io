@@ -11105,19 +11105,6 @@ header.masthead .masthead-heading {
   border-left: 3px solid #f2aa00;
   text-align: justify;
 }
-#pravilnik .pravilnik-text p.lead .phone-link {
-  color: #333333;
-  text-decoration: none;
-  pointer-events: none;
-  cursor: default;
-}
-@media (max-width: 768px) {
-  #pravilnik .pravilnik-text p.lead .phone-link {
-    color: #000000;
-    pointer-events: auto;
-    cursor: pointer;
-  }
-}
 #pravilnik .pravilnik-text p.lead:empty {
   display: none;
 }
